@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+
+
+
+<html lang="ko">
+
+
+
+
+
+
+
+<head>
+
+
+
+    <meta charset="UTF-8">
+
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+    <title>Dimension - 차원의 구원자</title>
+
+
+
+    <link type="text/css" rel="stylesheet" href="./style.css">
+
+
+
+    <script src="../js/script.js"></script>
+
+
+
+</head>
+
+
+
+
+
+
+
+<body>
+
+
+
+    <header class="header">
+
+
+
+        <div class="logo">
+
+
+
+            <img src="logo.png" alt="DIMENSION LOGO" class="img-logo">
+
+
+
+        </div>
+
+
+
+        <ul>
+
+
+
+            <li onclick="doScroll(0)" class="nav-item active">메인</li>
+
+
+
+            <li onclick="doScroll(1)" class="nav-item">사전 등록</li>
+
+
+
+            <li onclick="doScroll(2)" class="nav-item">세계관</li>
+
+
+
+            <li onclick="doScroll(3)" class="nav-item">종족 소개</li>
+
+
+
+        </ul>
+
+
+
+    </header>
+
+
+
+
+
+
+
+    <main class="main">
+
+
+
+        <section class="section-main">
+
+
+
+            <div class="main-content">
+
+
+
+                <div class="main-title-area">
+
+
+
+                    <img src="main_title.png" alt="차원의 구원자" class="img-main-title">
+
+
+
+                </div>
+
+
+
+                <div class="pre-reg-btn-img" onclick="doScroll(1)">
+
+
+
+                    <img src="btn_register.png" alt="사전등록하기" class="img-btn-reg">
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+        </section>
+
+
+
+
+
+
+
+        <section class="section-common">
+
+
+
+            <h2>사전 등록</h2>
+
+
+
+        </section>
+
+
+
+        <section class="section-common">
+
+
+
+            <h2>세계관</h2>
+
+
+
+        </section>
+
+
+
+
+
+
+
+        <section class="section-race">
+
+
+
+            <div class="race-container">
+
+
+
+                <ul class="race-menu">
+
+
+
+                    <li onclick="changeRace('hera')" class="active" id="btn-hera">마녀 —</li>
+
+
+
+                    <li onclick="changeRace('miho')" id="btn-miho">수인 —</li>
+
+
+
+                    <li onclick="changeRace('cheong')" id="btn-cheong">무림 —</li>
+
+
+
+                    <li onclick="changeRace('meisa')" id="btn-meisa">정령 —</li>
+
+
+
+                    <li onclick="changeRace('mk1')" id="btn-mk1">메카 —</li>
+
+
+
+                </ul>
+
+
+
+
+
+
+
+                <div id="character-display" class="character-display">
+
+
+
+                    <div class="info-text">
+
+
+
+                        <p class="quote">" <span id="char-quote">구원자? 음~ 오늘은 운세가 좋은 날이네</span> "</p>
+
+
+
+                        <h2 id="char-name">헤라</h2>
+
+
+
+                        <div class="tags">
+
+
+
+                            <span class="tag" id="tag-type">마녀</span>
+
+
+
+                            <span class="tag attr" id="tag-attr">어둠 속성</span>
+
+
+
+                        </div>
+
+
+
+                        <p id="char-desc" class="description">마녀들의 차원 「아르카시아」의 생존자 헤라...</p>
+
+
+
+                    </div>
+
+
+
+
+
+
+
+                    <div class="visual-area">
+
+
+
+                        <div id="bg-slope" class="bg-slope"></div>
+
+
+
+                        <img id="char-img" src="hera.png" alt="캐릭터">
+
+
+
+                    </div>
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+        </section>
+
+
+
+    </main>
+
+
+
+
+
+
+
+    <script src="./script.js"></script>
+
+
+
+</body>
+
+
+
+
+
+
+
+</html>

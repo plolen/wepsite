@@ -1,0 +1,260 @@
+/* 기본 초기화 */
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    /* 스크롤바 숨김 (JS 풀페이지용) */
+    background: #0b0e13;
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+}
+
+
+/* --- 헤더 & 네비게이션 --- */
+
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+    background: rgba(11, 14, 19, 0.9);
+    z-index: 1000;
+    box-sizing: border-box;
+    color: white;
+}
+
+
+/* 로고 이미지 크기 조절 */
+
+.img-logo {
+    height: 40px;
+    width: auto;
+    display: block;
+    cursor: pointer;
+}
+
+.header ul {
+    list-style: none;
+    display: flex;
+    gap: 35px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    cursor: pointer;
+    color: #666;
+    font-weight: 500;
+    padding-bottom: 5px;
+    border-bottom: 3px solid transparent;
+    transition: 0.3s ease;
+}
+
+.nav-item.active {
+    color: #00ffcc;
+    border-bottom-color: #00ffcc;
+}
+
+
+/* --- 메인 섹션 (이미지 리소스 배치) --- */
+
+.section-main {
+    width: 100%;
+    height: 100vh;
+    background-image: url('main_bg.png');
+    /* 배경 파일명 확인 */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.main-content {
+    text-align: center;
+    z-index: 10;
+}
+
+.main-content p {
+    font-size: 18px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    opacity: 0.9;
+}
+
+
+/* 타이틀 이미지 */
+
+.img-main-title {
+    width: 450px;
+    /* 타이틀 이미지 가로 크기 */
+    max-width: 90%;
+    height: auto;
+    margin: 15px 0;
+}
+
+
+/* 사전등록 버튼 이미지 영역 */
+
+.pre-reg-btn-img {
+    margin-top: 30px;
+    display: inline-block;
+    cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.img-btn-reg {
+    width: 260px;
+    /* 버튼 이미지 가로 크기 */
+    height: auto;
+}
+
+.pre-reg-btn-img:hover {
+    transform: scale(1.05);
+    filter: brightness(1.2);
+}
+
+
+/* --- 공통 섹션 설정 --- */
+
+.main>section {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-common {
+    background: #0b0e13;
+    color: white;
+}
+
+
+/* --- 종족 소개 섹션 (도형 구도) --- */
+
+.section-race {
+    background: #fdfdfb;
+    /* 이미지와 대조되는 밝은 배경 */
+    color: #333;
+}
+
+.race-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.race-menu {
+    width: 20%;
+    padding-left: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 20;
+    list-style: none;
+}
+
+.race-menu li {
+    font-size: 24px;
+    margin: 22px 0;
+    color: #ccc;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.race-menu li.active {
+    color: #333;
+    font-weight: bold;
+    transform: translateX(10px);
+}
+
+.character-display {
+    display: flex;
+    flex: 1;
+    height: 100%;
+    transition: 0.5s ease-out;
+}
+
+.character-display.fade {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.info-text {
+    width: 35%;
+    padding-left: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 10;
+}
+
+#char-name {
+    font-size: 70px;
+    margin: 10px 0;
+    font-weight: 900;
+}
+
+.tags {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.tag {
+    background: #eee;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.tag.attr {
+    background: #333;
+    color: white;
+}
+
+
+/* 가파르게 세워진 사선 도형 (페이지 위아래 양끝 꽉 참) */
+
+.visual-area {
+    position: relative;
+    width: 65%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.bg-slope {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #6e42c1;
+    /* 캐릭터별로 색상 변경됨 */
+    /* 가파르게 세워진 각도 조절: (왼쪽위, 오른쪽위, 오른쪽아래, 왼쪽아래) */
+    clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 10% 100%);
+    opacity: 0.25;
+    z-index: 1;
+    transition: background-color 0.6s ease, clip-path 0.6s ease;
+}
+
+#char-img {
+    position: absolute;
+    right: 5%;
+    bottom: 0;
+    height: 95%;
+    /* 캐릭터가 화면 위아래로 꽉 차게 */
+    z-index: 5;
+    object-fit: contain;
+}
