@@ -73,42 +73,36 @@
 
         <section class="section-race">
             <div class="race-container">
-
                 <ul class="race-menu">
-                    <li onclick="changeRace('hera')" class="active" id="btn-hera">마녀 —</li>
-                    <li onclick="changeRace('miho')" id="btn-miho">수인 —</li>
-                    <li onclick="changeRace('cheong')" id="btn-cheong">무림 —</li>
-                    <li onclick="changeRace('meisa')" id="btn-meisa">정령 —</li>
-                    <li onclick="changeRace('mk1')" id="btn-mk1">메카 —</li>
+                    <li onclick="changeRace('hera')" class="active" id="btn-hera">
+                        <img src="hera_icon_on.png" class="menu-icon">
+                    </li>
+                    <li onclick="changeRace('miho')" id="btn-miho">
+                        <img src="miho_icon_off.png" class="menu-icon">
+                    </li>
+                    <li onclick="changeRace('cheong')" id="btn-cheong">
+                        <img src="cheong_icon_off.png" class="menu-icon">
+                    </li>
+                    <li onclick="changeRace('meisa')" id="btn-meisa">
+                        <img src="meisa_icon_off.png" class="menu-icon">
+                    </li>
+                    <li onclick="changeRace('mk1')" id="btn-mk1">
+                        <img src="mk1_icon_off.png" class="menu-icon">
+                    </li>
                 </ul>
 
                 <div id="character-display" class="character-display">
-
                     <div class="info-text">
-                        <p class="quote">" <span id="char-quote">구원자? 음~ 오늘은 운세가 좋은 날이네</span> "</p>
-
-                        <h2 id="char-name">헤라</h2>
-
-                        <div class="tags">
-                            <span class="tag" id="tag-type">마녀</span>
-                            <span class="tag attr" id="tag-attr">어둠 속성</span>
-                        </div>
-
-                        <p id="char-desc" class="description">마녀들의 차원 「아르카시아」의 생존자 헤라...</p>
-                    </div>
-
-                    <div class="visual-area">
-                        <div id="bg-slope" class="bg-slope"></div>
-                        <img id="char-img" src="hera.png" alt="캐릭터">
+                        <img id="char-info-combined" src="hera_info_all.png" class="info-combined">
                     </div>
                 </div>
 
+                <div class="visual-area">
+                    <img id="char-visual-full" src="hera_full.png" class="char-visual-full">
+                </div>
             </div>
         </section>
-
-    </main>
-
-    <script src="./script.js"></script>
+        <script src="./script.js"></script>
 
 </body>
 

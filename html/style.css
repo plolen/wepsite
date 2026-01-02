@@ -328,11 +328,10 @@ body {
 }
 
 
-/* --- 종족 소개 섹션 (도형 구도) --- */
+/* --- 종족 소개 섹션 (이미지 기반 최종본) --- */
 
 .section-race {
-    background: #fdfdfb;
-    /* 이미지와 대조되는 밝은 배경 */
+    background: rgb(248, 246, 240);
     color: #333;
 }
 
@@ -343,29 +342,42 @@ body {
     position: relative;
 }
 
+
+/* [1] 왼쪽 메뉴: 텍스트 없이 아이콘만 배치 */
+
 .race-menu {
-    width: 20%;
+    width: 180px;
+    /* 메뉴 너비 확보 */
     padding-left: 60px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     z-index: 20;
     list-style: none;
+    gap: 15px;
+    /* 아이콘 사이 간격 */
 }
 
 .race-menu li {
-    font-size: 24px;
-    margin: 22px 0;
-    color: #ccc;
     cursor: pointer;
-    transition: 0.3s;
+    transition: transform 0.3s ease;
+    display: flex;
+    align-items: center;
 }
 
-.race-menu li.active {
-    color: #333;
-    font-weight: bold;
-    transform: translateX(10px);
+.race-menu li:hover {
+    transform: scale(1.05);
 }
+
+.menu-icon {
+    width: 80px;
+    /* 아이콘 크기 확대 */
+    height: 80px;
+    object-fit: contain;
+}
+
+
+/* [2] 중앙 정보 영역: 모두 이미지 기반 */
 
 .character-display {
     display: flex;
@@ -379,48 +391,68 @@ body {
     transform: translateY(20px);
 }
 
+
+/* 통합 정보 이미지 컨테이너 */
+
 .info-text {
-    width: 35%;
-    padding-left: 50px;
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: flex-start;
+    /* [조절 포인트 1] 왼쪽 캐릭터 메뉴와의 거리 */
+    padding-left: -10px;
+    /* [조절 포인트 2] 위쪽 네비게이션과의 거리 */
+    padding-top: 80px;
     z-index: 10;
+    transition: all 0.3s ease;
 }
 
-#char-name {
-    font-size: 70px;
-    margin: 10px 0;
-    font-weight: 900;
-}
-
-.tags {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.tag {
-    background: #eee;
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 14px;
-}
-
-.tag.attr {
-    background: #333;
-    color: white;
+.info-combined {
+    /* [조절 포인트 3] 통합 이미지의 전체 크기 */
+    width: auto;
+    max-width: 450px;
+    height: auto;
+    display: block;
 }
 
 
-/* 가파르게 세워진 사선 도형 (페이지 위아래 양끝 꽉 참) */
+/* [3] 우측 이중 캐릭터 비주얼 영역 */
+
+
+/* 1. 이미지 박스 크기를 키웁니다 */
 
 .visual-area {
     position: relative;
-    width: 65%;
-    height: 100%;
-    overflow: hidden;
+    width: 80%;
+    /* 60%에서 80%로 확장 (캐릭터가 활동할 공간 확보) */
+    height: 100vh;
+    display: flex;
+    justify-content: flex-end;
+    /* 캐릭터를 오른쪽 끝에 배치 */
+    align-items: center;
+    /* 세로 중앙 정렬 */
+    overflow: visible;
+    /* [중요] 박스가 작아도 캐릭터가 밖으로 보일 수 있게 설정 */
+    pointer-events: none;
+    /* 이미지 박스가 클릭(메뉴 선택)을 방해하지 않게 설정 */
 }
+
+
+/* 2. 캐릭터 이미지 설정 */
+
+#char-visual-full {
+    height: 100vh;
+    /* 화면 높이에 맞춤 */
+    width: auto;
+    /* 가로 비율 유지 */
+    object-fit: contain;
+    /* [추가] 기준점을 오른쪽 아래로 잡으면 스케일이 커질 때 위/옆으로 시원하게 커집니다 */
+    transform-origin: right bottom;
+}
+
+
+/* 배경 사선 도형 */
 
 .bg-slope {
     position: absolute;
@@ -429,20 +461,39 @@ body {
     width: 100%;
     height: 100%;
     background: #6e42c1;
-    /* 캐릭터별로 색상 변경됨 */
-    /* 가파르게 세워진 각도 조절: (왼쪽위, 오른쪽위, 오른쪽아래, 왼쪽아래) */
-    clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 10% 100%);
-    opacity: 0.25;
+    clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 15% 100%);
+    opacity: 0.15;
     z-index: 1;
-    transition: background-color 0.6s ease, clip-path 0.6s ease;
+    transition: background-color 0.6s ease;
 }
 
-#char-img {
+
+/* 뒤에 깔리는 크고 투명한 캐릭터 */
+
+.char-bg-fade {
+    position: absolute;
+    right: -10%;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 115%;
+    /* 메인보다 더 크게 */
+    opacity: 0.2;
+    /* 시안에 맞게 낮은 불투명도 */
+    z-index: 2;
+    object-fit: contain;
+    transition: 0.5s ease;
+}
+
+
+/* 앞에 오는 선명한 캐릭터 */
+
+.char-main {
     position: absolute;
     right: 5%;
     bottom: 0;
     height: 95%;
-    /* 캐릭터가 화면 위아래로 꽉 차게 */
+    /* 화면에 꽉 차게 */
     z-index: 5;
     object-fit: contain;
+    transition: 0.5s ease;
 }
